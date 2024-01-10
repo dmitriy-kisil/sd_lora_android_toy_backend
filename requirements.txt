@@ -1,0 +1,9 @@
+accelerate
+bitsandbytes
+cerebrium
+diffusers>=0.23.0
+scipy
+torch
+transformers
+triton
+xformers

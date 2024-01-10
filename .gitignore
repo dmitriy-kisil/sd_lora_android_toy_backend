@@ -1,0 +1,5 @@
+.venv
+*.jpg
+*.code-workspace
+*.ipynb
+*\:Zone.Identifier
