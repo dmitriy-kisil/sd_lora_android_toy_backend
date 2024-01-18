@@ -7,6 +7,9 @@ import torch
 from diffusers import AutoPipelineForText2Image
 from pydantic import BaseModel
 
+from huggingface_hub import login
+from cerebrium import get_secret
+
 
 class Item(BaseModel):
     prompt: str
@@ -15,8 +18,12 @@ class Item(BaseModel):
     num_inference_steps: int = 50
     seed: Optional[int] = 42
 
+    
+hf_token = get_secret("huggingface_token")
+login(token=hf_token)
+
 pipe = AutoPipelineForText2Image.from_pretrained("runwayml/stable-diffusion-v1-5", torch_dtype=torch.float16)
-pipe.load_lora_weights("lora-android-toy/checkpoint-800", weights="pytorch_lora_weights.safetensors")
+pipe.load_lora_weights("Oysiyl/sd-lora-android-google-toy", weights="pytorch_lora_weights.safetensors")
 
 
 def run_model(pipe, params, logger):

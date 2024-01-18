@@ -2,4 +2,5 @@
 *.jpg
 *.code-workspace
 *.ipynb
+secrets.yaml
 *\:Zone.Identifier
